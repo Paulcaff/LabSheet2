@@ -9,7 +9,7 @@ public class Strings {
 
     public static void name() {
         String name = JOptionPane.showInputDialog(null, "Please enter your full name here including your middle name if applicable: ");
-
+        int space=0;
         int len = name.length();
 
         int len2 = 0;
@@ -37,11 +37,27 @@ public class Strings {
         JOptionPane.showMessageDialog(null, upper);
 
 
-        System.out.println(name.lastIndexOf(name));
+        System.out.println(name.lastIndexOf(' '));
 
-        for (int j = len; j > 0; j--) {
+        int lastSpace = name.lastIndexOf(' ');
+
+        for (int j = len2; j >= 0; j--) {
+            if(name.charAt(j)==' '){
+                space = j;
+                break;
+            }
+
+            /*else {
+                JOptionPane.showMessageDialog(null,"You only entered 1 name");
+            }*/
 
 
         }
+
+        //if(j==-1)
+
+        int len3 = len - space;
+
+        JOptionPane.showMessageDialog(null,"Your last name is"+name.substring(space,len));
     }
 }
